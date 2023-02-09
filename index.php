@@ -1,8 +1,8 @@
 <?php
 	$servname = 'localhost';
 	$dbname = 'form';
-	$user = 'root';
-	$pass = '';
+	$dbuser = 'root';
+	$dbpass = 'root';
 	
 	function connect(PDO $pdo, String $name, String $pass)
 	{
@@ -52,11 +52,11 @@
 
 	try
 	{
-		$pdo = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
+		$pdo = new PDO("mysql:host=$servname;dbname=$dbname", $dbuser, $dbpass);
 	}
 	catch(Exception $e)
 	{
-		echo 'Echec de la connexion à la base de données';
+		echo $e->getMessage();
 		exit();
 	}
 
